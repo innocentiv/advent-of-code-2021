@@ -1,5 +1,3 @@
-use itertools::Itertools;
-
 #[aoc_generator(day1)]
 pub fn generator(input: &str) -> Vec<i32> {
     input
@@ -11,18 +9,18 @@ pub fn generator(input: &str) -> Vec<i32> {
 
 #[aoc(day1, part1)]
 pub fn solver_part1(input: &Vec<i32>) -> u32 {
-    input.iter().tuple_windows().fold(
+    input.windows(2).fold(
         0,
-        |acc, (elem, next)| if elem < next { acc + 1 } else { acc },
+        |acc, slice| if slice[0] < slice[1] { acc + 1 } else { acc },
     )
 }
 
 #[aoc(day1, part2)]
 pub fn solver_part2(input: &Vec<i32>) -> u32 {
-    input
-        .iter()
-        .tuple_windows()
-        .fold(0, |acc, (a, _b, _c, d)| if a < d { acc + 1 } else { acc })
+    input.windows(4).fold(
+        0,
+        |acc, slice| if slice[0] < slice[3] { acc + 1 } else { acc },
+    )
 }
 
 // :: ---
