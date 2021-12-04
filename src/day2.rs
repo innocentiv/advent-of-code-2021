@@ -29,7 +29,7 @@ struct Coordinates {
     horizontal: i32,
 }
 
-#[aoc(day2, part1, original)]
+#[aoc(day2, part1)]
 pub fn solver_part1(input: &Vec<Command>) -> i32 {
     let result = input.iter().fold(
         Coordinates {
@@ -60,7 +60,7 @@ struct CoordinatesWithAim {
     horizontal: i32,
 }
 
-#[aoc(day2, part2, original)]
+#[aoc(day2, part2)]
 pub fn solver_part2(input: &Vec<Command>) -> i32 {
     let result = input.iter().fold(
         CoordinatesWithAim {
